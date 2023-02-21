@@ -28,32 +28,50 @@ function App() {
       </div>
       <div className="column">
         <UserForm setName={setName} setLocation={setLocation} />
+
         <div className="card rightCard">
           {/*eslint-disable-next-line*/}
-          <p
-            className="is-size-4"
-            style={{
-              textAlign: "center",
-              fontWeight: "bold",
-              fontSize: "20px",
-            }}
-          >
-            <AiOutlineArrowDown /> Mostrar Información del Usuario Aquí{" "}
-            <AiOutlineArrowDown />
-          </p>
-          <Name name={name} />
-          <Location location={location} />
-          {name !== "" && (
-            <center>
-              <input
-                type="submit"
-                value="Reiniciar"
-                onClick={() => {
-                  setName("");
-                  setLocation("");
+          {name !== "" ? (
+            <>
+              <p
+                className="is-size-4"
+                style={{
+                  textAlign: "center",
+                  fontWeight: "bold",
+                  fontSize: "20px",
                 }}
-              />
-            </center>
+              >
+                Información del Usuario: {" "}
+              </p>
+              <Name name={name} />
+              <Location location={location} />
+              {name !== "" && (
+                <center>
+                  <input
+                    type="submit"
+                    value="Reiniciar"
+                    onClick={() => {
+                      setName("");
+                      setLocation("");
+                    }}
+                  />
+                </center>
+              )}
+            </>
+          ) : (
+            <div style={{marginTop: '90px'}}>
+              <p
+                className="is-size-4"
+                style={{
+                  textAlign: "center",
+                  fontWeight: "bold",
+                  fontSize: "20px",
+                }}
+              >
+                <AiOutlineArrowDown /> Ingresa información para mostrarla aqui{" "}
+                <AiOutlineArrowDown />
+              </p>
+            </div>
           )}
         </div>
       </div>
